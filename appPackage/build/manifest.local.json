@@ -1,0 +1,52 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.17",
+    "version": "1.0.0",
+    "id": "2f0439b8-f0ec-4fae-ab10-1bc056524621",
+    "developer": {
+        "name": "Teams App, Inc.",
+        "websiteUrl": "https://localhost:53000",
+        "privacyUrl": "https://localhost:53000/index.html#/privacy",
+        "termsOfUseUrl": "https://localhost:53000/index.html#/termsofuse"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "NitroTeamsIntegrationTSlocal",
+        "full": "Full name for NitroTeamsIntegrationTS"
+    },
+    "description": {
+        "short": "Short description of NitroTeamsIntegrationTS",
+        "full": "Full description of NitroTeamsIntegrationTS"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [],
+    "composeExtensions": [],
+    "configurableTabs": [],
+    "staticTabs": [
+        {
+            "entityId": "index",
+            "name": "Home",
+            "contentUrl": "https://localhost:53000/index.html#/tab",
+            "websiteUrl": "https://localhost:53000/index.html#/tab",
+            "scopes": [
+                "personal",
+                "groupChat",
+                "team"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "localhost"
+    ],
+    "webApplicationInfo": {
+        "id": "b8a01cab-3139-4e8e-a8e5-89e7a5c8b719",
+        "resource": "api://localhost:53000/b8a01cab-3139-4e8e-a8e5-89e7a5c8b719"
+    }
+}
