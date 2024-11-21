@@ -7,13 +7,14 @@ import {
   Spinner,
   tokens,
 } from "@fluentui/react-components";
+import { useContext, useRef, useEffect, useState} from "react";
+
 import { HashRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import { useTeamsUserCredential } from "@microsoft/teamsfx-react";
-import Privacy from "./Privacy";
-import TermsOfUse from "./TermsOfUse";
-import Tab from "./Tab";
+import PDFViewer from "././PDFViewer";
 import { TeamsFxContext } from "./Context";
 import config from "./sample/lib/config";
+import { FileSelector } from "./FileSelectPage";
 
 /**
  * The main app which handles the initialization and routing
@@ -24,6 +25,9 @@ export default function App() {
     initiateLoginEndpoint: config.initiateLoginEndpoint!,
     clientId: config.clientId!,
   });
+
+  const [file, setFile] = useState<File | null>(null)
+
   return (
     <TeamsFxContext.Provider value={{ theme, themeString, teamsUserCredential }}>
       <FluentProvider
@@ -43,12 +47,7 @@ export default function App() {
           {loading ? (
             <Spinner style={{ margin: 100 }} />
           ) : (
-            <Routes>
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/termsofuse" element={<TermsOfUse />} />
-              <Route path="/tab" element={<Tab />} />
-              <Route path="*" element={<Navigate to={"/tab"} />}></Route>
-            </Routes>
+                file ? (<PDFViewer file={file} />) : (<FileSelector handleFileSelected={(file) => setFile(file)}/>)
           )}
         </Router>
       </FluentProvider>

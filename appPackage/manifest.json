@@ -1,6 +1,6 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.17",
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
+    "manifestVersion": "devPreview",
     "version": "1.0.0",
     "id": "${{TEAMS_APP_ID}}",
     "developer": {
@@ -14,17 +14,38 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "NitroTeamsIntegrationTS${{APP_NAME_SUFFIX}}",
-        "full": "Full name for NitroTeamsIntegrationTS"
+        "short": "nitro-${{APP_NAME_SUFFIX}}",
+        "full": "Full name for ms-teams-nitro-integration"
     },
     "description": {
-        "short": "Short description of NitroTeamsIntegrationTS",
-        "full": "Full description of NitroTeamsIntegrationTS"
+        "short": "Short description of ms-teams-nitro-integration",
+        "full": "Full description of ms-teams-nitro-integration"
     },
     "accentColor": "#FFFFFF",
     "bots": [],
     "composeExtensions": [],
     "configurableTabs": [],
+    "actions": [
+        {
+          "id": "relatedTasks",
+          "displayName": "Related tasks",
+          "intent": "custom",
+          "description": "Shows tasks in the To do app that are related to this file.",
+          "handlers": [
+            {
+              "type": "openPage",
+              "supportedObjects": {
+                "file": {
+                  "extensions": ["pdf"]
+                }
+              },
+              "pageInfo": {
+                "pageId": "index"
+              }
+            }
+          ]
+        }
+      ],
     "staticTabs": [
         {
             "entityId": "index",

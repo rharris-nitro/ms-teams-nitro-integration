@@ -1,8 +1,8 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.17",
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
+    "manifestVersion": "devPreview",
     "version": "1.0.0",
-    "id": "2f0439b8-f0ec-4fae-ab10-1bc056524621",
+    "id": "6557ae3a-38db-4de9-876f-4128176137f8",
     "developer": {
         "name": "Teams App, Inc.",
         "websiteUrl": "https://localhost:53000",
@@ -14,17 +14,40 @@
         "outline": "outline.png"
     },
     "name": {
-        "short": "NitroTeamsIntegrationTSlocal",
-        "full": "Full name for NitroTeamsIntegrationTS"
+        "short": "nitro-local",
+        "full": "Full name for ms-teams-nitro-integration"
     },
     "description": {
-        "short": "Short description of NitroTeamsIntegrationTS",
-        "full": "Full description of NitroTeamsIntegrationTS"
+        "short": "Short description of ms-teams-nitro-integration",
+        "full": "Full description of ms-teams-nitro-integration"
     },
     "accentColor": "#FFFFFF",
     "bots": [],
     "composeExtensions": [],
     "configurableTabs": [],
+    "actions": [
+        {
+            "id": "relatedTasks",
+            "displayName": "Related tasks",
+            "intent": "custom",
+            "description": "Shows tasks in the To do app that are related to this file.",
+            "handlers": [
+                {
+                    "type": "openPage",
+                    "supportedObjects": {
+                        "file": {
+                            "extensions": [
+                                "pdf"
+                            ]
+                        }
+                    },
+                    "pageInfo": {
+                        "pageId": "index"
+                    }
+                }
+            ]
+        }
+    ],
     "staticTabs": [
         {
             "entityId": "index",
@@ -46,7 +69,7 @@
         "localhost"
     ],
     "webApplicationInfo": {
-        "id": "b8a01cab-3139-4e8e-a8e5-89e7a5c8b719",
-        "resource": "api://localhost:53000/b8a01cab-3139-4e8e-a8e5-89e7a5c8b719"
+        "id": "adb1f14c-66d8-48a3-8786-f3b3a8be7108",
+        "resource": "api://localhost:53000/adb1f14c-66d8-48a3-8786-f3b3a8be7108"
     }
 }

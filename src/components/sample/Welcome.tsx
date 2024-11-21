@@ -14,7 +14,6 @@ import { CurrentUser } from "./CurrentUser";
 import { useData } from "@microsoft/teamsfx-react";
 import { Deploy } from "./Deploy";
 import { Publish } from "./Publish";
-import { FileSelector } from "./FileSelector";
 import { TeamsFxContext } from "../Context";
 import { app } from "@microsoft/teams-js";
 
@@ -51,8 +50,7 @@ export function Welcome(props: { showFunction?: boolean; environment?: string })
   return (
     <div className="welcome page">
       <div className="narrow page-padding">
-        {/* <Image src="hello.png" /> */}
-        <Image src="nitro.png" />
+        <Image src="hello.png" />
         <h1 className="center">Congratulations{userName ? ", " + userName : ""}!</h1>
         {hubName && <p className="center">Your app is running in {hubName}</p>}
         <p className="center">Your app is running in your {friendlyEnvironmentName}</p>
@@ -67,9 +65,6 @@ export function Welcome(props: { showFunction?: boolean; environment?: string })
             </Tab>
             <Tab id="Publish" value="publish">
               3. Publish to Teams
-            </Tab>
-            <Tab id="FileSelector" value="fileselector">
-              4. Upload to NSS
             </Tab>
           </TabList>
           <div>
@@ -88,11 +83,6 @@ export function Welcome(props: { showFunction?: boolean; environment?: string })
             {selectedValue === "publish" && (
               <div>
                 <Publish />
-              </div>
-            )}
-            {selectedValue === "fileselector" && (
-              <div>
-                <FileSelector />
               </div>
             )}
           </div>
